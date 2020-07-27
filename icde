@@ -1,0 +1,82 @@
+1. Overall Evaluation *   (visible to author during feedback, visible to author after notification, visible to other reviewer, visible to meta-reviewer)
+
+weak reject
+
+2. Confidence *   (visible to author during feedback, visible to author after notification, visible to other reviewer, visible to meta-reviewer)
+
+Knowledgeable
+
+3. Originality *   (visible to author during feedback, visible to author after notification, visible to other reviewer, visible to meta-reviewer)
+
+Medium
+
+4. Importance *   (visible to author during feedback, visible to author after notification, visible to other reviewer, visible to meta-reviewer)
+
+High
+
+5. Summary of the contribution (in a few sentences) *   (visible to author during feedback, visible to author after notification, visible to other reviewer, visible to meta-reviewer)
+
+Tuning data analytics systems is tedious and challenging due to the diverse system configurations and workloads. To address this problem, this paper presents an optimizer, UDAO, to automatically determine a cluster configuration with a suitable number of cores as well as other system parameters that best meet the task objectives for cloud analytics via a principled multi-objective optimization (MOO) approach. Their experiments  evaluate the efficiency of the MOO techniques they proposed by comparing it with existing MOO methods, and show the advantage of UDAO by comparing with a state-of-the-art performance tuning system Ottertune. Overall, I think there are interesting and novel contributions that readers will find interesting, and could build upon/compare with in the future.
+
+
+6. List three or more strong points, labelled S1, S2, S3, etc. *   (visible to author during feedback, visible to author after notification, visible to other reviewer, visible to meta-reviewer)
+
+S1: The paper addresses the multi-objective optimization problem of data analytics in the cloud which is really important and challenging in big data analytics systems. 
+
+S2: The optimizer UDAO is designed to work for recurring workloads and support serverless DBs.
+
+S3: They implement their algorithms into a Spark-based prototype and the evaluation results show their approach produces a better performance than the existing MOO methods.
+
+S4: They decouple modeling and optimization steps to meet stringent time constraints and the objective models are updated frequently from new training data to make more accurate recommendations. 
+
+S5: The paper presented a thorough experimental evaluation and showed better performance by comparing with a state-of-the-art performance tuning system Ottertune.
+
+S6: Very well written. The motivation is clear and easy to follow. 
+
+
+7. List three or more weak points, labelled W1, W2, W3, etc. *   (visible to author during feedback, visible to author after notification, visible to other reviewer, visible to meta-reviewer)
+
+
+W1: They only use two type of workloads in the paper which is not enough especially in cloud environment. For the fair/better comparision, it will be better to add the workloads which adopted by ottertune to evaluate the tuning performance. 
+
+W2: The authors decide a neural network architecture without explaining why this is a good choice, and without reasoning about the actual architecture. 
+
+W3: While it is clear that system performance tuning in cloud is typically more complex, the paper does not clearly focus in this scenario in the experiment part. This is only triggered because by using “cloud” on the title and so prominently in intro, the question comes naturally. If the hardwares(cpu, memory, disk capacity..)/workloads changes, does the corresponding predictive model need retrain? If so, is it costly? 
+
+W4: How to select important knobs or parameters in systems (in Section VI)? It only briefly discuss which tuning knobs/parameters are crucial and this discussion does not offer much additional information than prior work (OtterTune). 
+
+W5: The experiments only pose the evaluation on Spark system, how about the tuning performance in the other other big data analytics systems?
+
+W6: Not nicely positioned against the related work. exclude the related reasearch works below:
+[1] Zhu Y , Liu J . ClassyTune: A Performance Auto-Tuner for Systems in the Cloud[J]. IEEE Transactions on Cloud Computing, 2019.
+[2] Zhu Y , Liu J , Guo M , et al. BestConfig: Tapping the Performance Potential of Systems via Automatic Configuration Tuning[C]// the 2017 Symposium. 2017.
+
+
+8. Detailed evaluation, labelled D1, D2, D3 etc. *   (visible to author during feedback, visible to author after notification, visible to other reviewer, visible to meta-reviewer)
+
+D1: Please address W2, W3, W4. 
+
+D2: They incrementally transform a MOO problem to a set of constrained optimization (CO) problems to improve the efficiency, does it impact the effect of balancing the multiple objectives? Please report it.
+
+D3: They use a separate model server to collect traces during job execution, what is the interval and will it affect the frontend task performance? Please report it. 
+
+D4: Clarifying the scope and contributions of the paper, and to better position the work compared to the vast body of prior work in auto-tuning in systems.
+
+D5: The paper is hard-to-follow with lack of explanations and examples especially in Section III. 
+
+
+
+9. Poster paper recommendation.   (visible to other reviewer, visible to meta-reviewer)
+
+No
+
+10. Candidate for a Revision? (Please note that the authors have only one month to revise) *   (visible to author during feedback, visible to author after notification, visible to other reviewer, visible to meta-reviewer)
+
+Yes
+
+11. Required changes for a revision, if applicable. Labelled R1, R2, R3, etc
+
+
+12. Recommend for best paper award   (visible to other reviewer, visible to meta-reviewer)
+
+No
